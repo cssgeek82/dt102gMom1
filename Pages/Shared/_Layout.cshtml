@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="sv-se">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] </title>
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    @{ 
+        DateTime date = DateTime.Today;
+    }
+
+    <header class="mainheader">
+        <div class="headerimg">
+            <a href="/"><img class="headimg" src="~/img/tiger.png" alt="Tiger" /></a>
+        </div>
+        <div class="dates">
+            <p>Dagens datum är: @date.ToString("d")  </p>
+        </div>
+    </header> 
+
+    <div class="container">
+        <aside class="aside">
+            <nav id="sidenav">
+                <ul>
+                    <li class="hidebig"><a href="javascript:void(0)" class="closebtn hidebig" onclick="closeNav()">&times;</a></li>
+                    <li><a href="/">Start</a></li>
+                    <li><a href="/Razor">Razor</a></li>
+                    <li><a href="/About">Om sidan</a></li>
+                </ul>
+            </nav>
+            <span id="menuButton" class="hidebig" role="navigation" onclick="openNav()">&#9776;</span>
+        </aside>
+
+        <main role="main" class="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="mainfooter">
+        <div class="footercontent">
+            <p>Av Student Lena Tibbling - Kontakta mig via e-post: leti1900@student.miun.se </p>
+        </div>
+    </footer>
+
+    <script src="~/js/main.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
